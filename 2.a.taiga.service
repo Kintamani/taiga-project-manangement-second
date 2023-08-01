@@ -1,0 +1,16 @@
+[Unit]
+Description=taiga_back
+After=network.target
+
+[Service]
+User=taiga
+WorkingDirectory=/home/taiga/taiga-back
+ExecStart=/home/taiga/taiga-back/.venv/bin/gunicorn --workers 4 --timeout 60 --log-level=info --access-logfile - --bind 0.0.0.0:8001 taiga.wsgi
+Restart=always
+RestartSec=3
+
+Environment=PYTHONUNBUFFERED=true
+Environment=DJANGO_SETTINGS_MODULE=settings.config
+
+[Install]
+WantedBy=default.target
