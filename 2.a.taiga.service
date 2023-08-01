@@ -5,7 +5,7 @@ After=network.target
 [Service]
 User=taiga
 WorkingDirectory=/home/taiga/taiga-back
-ExecStart=/home/taiga/taiga-back/.venv/bin/gunicorn --workers 4 --timeout 60 --log-level=info --access-logfile - --bind 0.0.0.0:8001 taiga.wsgi
+ExecStart=/home/taiga/taiga-back/.venv/bin/gunicorn --workers 4 --timeout 60 --log-level=info --access-logfile - --bind 0.0.0.0:8000 taiga.wsgi
 Restart=always
 RestartSec=3
 
